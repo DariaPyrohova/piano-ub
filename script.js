@@ -1,49 +1,54 @@
+const keyboard = document.querySelector('.piano-keyboard');
 const [whiteKeyList, blackKeyList] = document.getElementsByTagName('ul');
 
+const sound = {};
 const pianoData = {
-  white: [
-    {note: 'do1', color: '#f3f8f82f'},
-    {note: 're1', color: '#f3f8f82f'},
-    {note: 'mi1', color: '#f3f8f82f'},
-    {note: 'fa1', color: '#f3f8f82f'},
-    {note: 'sol1', color: '#f3f8f82f'},
-    {note: 'la1', color: '#f3f8f82f'},
-    {note: 'si1', color: '#f3f8f82f'},
-    {note: 'do2', color: '#f3f8f82f'},
-    {note: 're2', color: '#f3f8f82f'},
-    {note: 'mi2', color: '#f3f8f82f'},
-  ],
-  black: [
-    {note: 'doDiez1', color: '#042626'},
-    {note: 'reDiez1', color: '#093f3f'},,
-    {note: 'faDiez1', color: '#135d5d'},
-    {note: 'solDiez1', color: '#208383'},
-    {note: 'laDiez1', color: '#35aaaa'},,
-    {note: 'doDiez2', color: '#4acdcd'},
-    {note: 'reDiez2', color: '#5eefef'},
-  ],
+  white: ['do-1', 're-1', 'mi-1', 'fa-1', 'sol-1', 'la-1', 'si-1', 'do-2', 're-2', 'mi-2'],
+  black: ['do-diez-1', 're-diez-1', , 'fa-diez-1', 'sol-diez-1', 'la-diez-1', , 'do-diez-2', 're-diez-2']
 };
 
 showKeyboard();
 
+keyboard.onmousedown = handleKey;
+
 function showKeyboard() {
-  const whiteKeysHTML = buildKeysMarkup('white');
-  const blackKeysHTML = buildKeysMarkup('black');
+  const whiteKeysHTML = buildKeys('white');
+  const blackKeysHTML = buildKeys('black');
 
   whiteKeyList.innerHTML = whiteKeysHTML;
   blackKeyList.innerHTML = blackKeysHTML;
 }
 
-function buildKeysMarkup(color) {
+function buildKeys(color) {
   let html = '';
   const keys = pianoData[color];
 
   for (const key of keys) {
-    html += `<li>${
-      key ? `<button style="background: ${key.color}">${key.note}</button>` : ''
-    }</li>`;
+    html += `<li>${key ? `<button id="${key}" class="key"></button>` : ''}</li>`;
+    sound[key] = new Audio(`piano-sounds/${key}.mp3`);
   }
-  
+
   return html;
 }
 
+function handleKey(e) {
+  const key = e.target;
+  const keySound = sound[key.id];
+
+  if (!keySound) return;
+
+  keySound.currentTime = 0;
+  keySound.volume = 1;
+  keySound.play();
+
+  onmouseup = () => {
+    const timerId = setInterval(() => {
+      if (keySound.volume <= 0.05) {
+        keySound.pause();
+        clearInterval(timerId);
+        return;
+      }
+      keySound.volume *= 0.95;
+    }, 10);
+  }
+}

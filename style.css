@@ -1,0 +1,165 @@
+:root {
+  --white-key-color: #f6f5cbd7;
+  --white-key-active-color: #f3f8f82f;
+  --black-key-color: linear-gradient(to bottom, rgba(79, 74, 74, 1), rgb(0, 0, 0));
+  --box-shadov: 0 9px 5px rgba(37, 36, 36, 0.812);
+  --box-shadow-active: 0 5px 3px rgba(25, 25, 25, 0.712);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.piano {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to left bottom, rgb(236, 214, 154), rgb(151, 177, 195));
+}
+
+.piano-name {
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-family: "Dancing Script", cursive;
+  font-size: 50px;
+  color: rgb(23, 23, 67);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.piano-keyboard {
+  width: 100%;
+  height: 470px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  position: relative;
+}
+
+
+/*black keys styles*/
+.white {
+  display: flex;
+  position: absolute;
+}
+
+.white .key {
+  background: var(--white-key-color);
+  height: 470px;
+  width: 100px;
+  border: 3px solid rgba(0, 0, 0, 0.695);
+  border-top: 10px solid hsla(246, 70%, 18%, 1);
+  box-shadow: var(--box-shadov);
+}
+
+#do-1 {
+  border-left: 6px solid rgba(0, 0, 0, 0.695);
+}
+
+#mi-2 {
+  border-right: 6px solid rgba(0, 0, 0, 0.695);
+}
+
+.white button:hover {
+  background: #f6f5cb95;
+}
+
+.white button:active {
+  border-style: outset;
+  height: 472px;
+  box-shadow: var(--box-shadow-active);
+  background: var(--white-key-active-color);
+}
+
+
+/*black keys styles*/
+.black {
+  display: flex;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  height: 310px;
+  margin-top: 9px;
+  justify-content: center;
+  padding-left: 38px;
+  pointer-events: none;
+}
+
+.black .key {
+  background: var(--black-key-color);
+  height: 300px;
+  width: 65px;
+  margin-right: 36px;
+  box-shadow: var(--box-shadov);
+  pointer-events: all;
+}
+
+#re-diez-1,
+#la-diez-1 {
+  margin-right: 133px;
+}
+
+.black button:hover {
+  background: linear-gradient(to bottom, rgb(115, 125, 128), rgba(0, 0, 0, 1));
+}
+
+.black button:active {
+  border-style: outset;
+  height: 301px;
+  box-shadow: var(--box-shadow-active);
+}
+
+#do-diez-1:active {
+  background: hsl(180, 81%, 8%);
+  border: 2px solid hsl(180, 81%, 5%);
+}
+
+#re-diez-1:active {
+  background: hsl(180, 75%, 14%);
+  border: 2px solid hsl(180, 75%, 12%);
+}
+
+#fa-diez-1:active {
+  background: hsl(180, 66%, 22%);
+  border: 2px solid hsl(180, 66%, 18%);
+}
+
+#sol-diez-1:active {
+  background: hsl(180, 60%, 32%);
+  border: 2px solid hsl(180, 60%, 28%);
+}
+
+#la-diez-1:active {
+  background: hsl(180, 52%, 44%);
+  border: 2px solid hsl(180, 52%, 40%);
+}
+
+#do-diez-2:active {
+  background: hsl(180, 57%, 55%);
+  border: 2px solid hsl(180, 57%, 47%);
+}
+
+#re-diez-2:active {
+  background: hsl(180, 82%, 65%);
+  border: 2px solid hsl(180, 82%, 55%);
+}
+
+
+/*colors {
+  color: #042626;
+  color: #093f3f;
+  color: #135d5d;
+  color: #208383;
+  color: #35aaaa;
+  color: #4acdcd;
+  color: #5eefef;
+
+
+  color: #f3f8f82f;
+}*/
