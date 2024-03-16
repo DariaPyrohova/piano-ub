@@ -32,8 +32,9 @@ function buildKeys(color) {
 }
 
 function handleKey(e) {
-  const key = e.target;
-  const keySound = sound[key.id];
+  const btn = e.target;
+  const key = btn.id;
+  const keySound = sound[key]; // Audio
 
   if (!keySound) return;
 

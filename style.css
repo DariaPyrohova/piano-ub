@@ -34,19 +34,16 @@ ul {
 }
 
 .piano-keyboard {
-  width: 100%;
+  width: max-content;
   height: 470px;
-  display: flex;
-  justify-content: center;
-  align-items: start;
   position: relative;
+  margin: auto; 
 }
 
 
 /*black keys styles*/
 .white {
   display: flex;
-  position: absolute;
 }
 
 .white .key {
@@ -80,29 +77,32 @@ ul {
 
 /*black keys styles*/
 .black {
-  display: flex;
-  z-index: 1;
   position: absolute;
   top: 0;
   height: 310px;
   margin-top: 9px;
-  justify-content: center;
-  padding-left: 38px;
+  padding-left: 68px;
   pointer-events: none;
+  display: flex;
+  gap: 35px;
+  justify-content: center;
+}
+
+.black li {
+  width: 65px;
 }
 
 .black .key {
   background: var(--black-key-color);
   height: 300px;
-  width: 65px;
-  margin-right: 36px;
+  width: 100%;
   box-shadow: var(--box-shadov);
   pointer-events: all;
 }
 
 #re-diez-1,
 #la-diez-1 {
-  margin-right: 133px;
+ /* margin-right: 133px; */
 }
 
 .black button:hover {
