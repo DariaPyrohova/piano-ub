@@ -13,7 +13,7 @@
 
 .piano {
   margin: 0;
-  height: 100vh;
+  height: max-content;
   background: linear-gradient(to left bottom, rgb(236, 214, 154), rgb(151, 177, 195));
 }
 
@@ -23,7 +23,7 @@
 
 h1 {
   text-align: center;
-  padding: 20px 0;
+  padding: 40px 0;
   font-family: "Dancing Script", cursive;
   font-size: 50px;
   color: rgb(23, 23, 67);
@@ -37,7 +37,7 @@ ul {
   width: max-content;
   height: 470px;
   position: relative;
-  margin: auto; 
+  margin: 40px auto; 
 }
 
 
@@ -100,11 +100,6 @@ ul {
   pointer-events: all;
 }
 
-#re-diez-1,
-#la-diez-1 {
- /* margin-right: 133px; */
-}
-
 .black button:hover {
   background: linear-gradient(to bottom, rgb(115, 125, 128), rgba(0, 0, 0, 1));
 }
@@ -150,6 +145,23 @@ ul {
   border: 2px solid hsl(180, 82%, 55%);
 }
 
+.selected {
+  position: relative;
+}
+
+.selected::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url("./note-image.svg");
+  background-size: 30px 30px;
+  bottom: 10px;
+  left: 50%;
+  translate: -50%;
+}
+
 
 /*colors {
   color: #042626;
@@ -163,3 +175,96 @@ ul {
 
   color: #f3f8f82f;
 }*/
+
+
+
+
+.input-field {
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  margin: 130px auto 0;
+  padding-bottom: 100px;
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 500px;
+  padding-right: 50px;
+}
+
+label {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(23, 23, 67);
+  text-align: center;
+}
+
+#melody-choice {
+  font-family:"Harrington", fantasy;
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  border-radius: 15%;
+  width: 300px;
+  height: 55px;
+  margin: 20px 0;
+}
+
+#custom-melody-input {
+  font-family:"Harrington", fantasy;
+  font-size: 25px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  border-radius: 10%;
+  height: 250px;
+  width: 300px;
+  margin: 20px 0;
+}
+
+#play-btn {
+  font-family: "Dancing Script", cursive;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  border-radius: 13%;
+}
+
+
+.instrucion {
+  width: 650px;
+  height: max-content;
+}
+
+h3 {
+  font-family: "Dancing Script", cursive;
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb(23, 23, 67);
+  text-align: center;
+  padding-bottom: 12px;
+}
+
+p {
+  word-break: keep-all;
+  letter-spacing: 1.5px;
+  line-height: 1.3;
+  font-family:"Harrington", fantasy;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.important-inf {
+  text-decoration: underline;
+}
+
+.examples {
+  color: rgb(34, 146, 165);
+  font-weight: 600;
+}

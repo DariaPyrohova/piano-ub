@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <script src="melodies-datalist.js" defer></script>
 </head>
 
 <body>
@@ -25,6 +26,36 @@
     <div class="piano-keyboard">
       <ul class="white"></ul>
       <ul class="black"></ul>
+    </div>
+
+    <div class="input-field">
+      <form>
+        <label for="melody-choice">Create your<br>own melody or choose<br>one from the list:</label>
+        <input name="melody-choice" list="melodies" id="melody-choice">
+        <datalist id="melodies"></datalist>
+
+        <textarea name="custom-melody-input" id="custom-melody-input" cols="30" rows="10"></textarea>
+        
+        <input id="play-btn" type="submit" value="Play">
+      </form>
+
+      <div class="instrucion">
+        <h3>How to write a melody:</h3>
+        <p>
+          1. Use the following note names: do-1, do-diez-1, re-1, re-diez-1, mi-1, fa-1, fa-diez-1, sol-1, sol-diez-1,
+          la-1, la-diez-1, si-1, do-2, do-diez-2, re-2, re-diez-2, mi-2; <br><br>
+          2. After the note name, enter the duration <span class="important-inf">in milliseconds in square
+            brackets</span> (for a fast tempo, use 480 for a quarter like in the example <span
+            class="examples">mi-1[480]</span>); <br><br>
+          3. To create an interval or chord, write the necessary notes in parentheses. Specify the duration in
+          milliseconds <span class="important-inf">in square brackets without a space after the closing
+            parenthesis</span> (for example, <span class="examples">(do-1 mi-1 sol-1)[960]</span> - chord "do-mi-sol"
+          will sound 960ms); <br><br>
+          4. The duration of pauses between notes should be specified also in milliseconds but <span
+            class="important-inf">without parentheses</span> (in the example <span class="examples">mi-1[480] 360
+            fa-diez-1[120] sol-1[480] 360</span> there are 2 pauses of 360ms duration).</p>
+      </div>
+
     </div>
   </main>
 </body>
